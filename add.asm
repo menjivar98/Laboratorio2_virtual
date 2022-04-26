@@ -2,24 +2,22 @@
 
         section .text
 
-; suma usando registros
-        mov     AH, 0d
-        mov     AL, 0d
-        mov     BH, 1d
-        mov     BL, 9d
-        mov     CH, 5d
-        mov     CL, 3d
-        mov     DH, 1d
-        mov     DL, 6d
+    mov     byte[200h], 0d
+    mov     byte[201h], 0d
+    mov     byte[202h], 1d
+    mov     byte[203h], 9d
+    mov     byte[204h], 5d
+    mov     byte[205h], 3d
+    mov     byte[206h], 1d
+    mov     byte[207h], 6d
 
-        add     CL, DH
-        add     CL, DL
-        
-       
+    mov     CL, 3d
+    mov     DH, 1d
+    mov     DL, 6d
 
-; suma usando celda de memoria
-; cuando la fuente es un dato inmediato y el destino es una celda de memoria, es necesario indicar el tamaño con una directiva
-        mov     byte[200h], AH
-        mov     byte[210h], CL       
+    add     CL, DH
+    add     CL, DL
 
-        int     20h
+    mov     byte[210h], CL 
+
+    int     20h
